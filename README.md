@@ -10,13 +10,9 @@ SmartBuy é uma aplicação web desenvolvida em **Spring Boot (Java)** que permi
 
 | Nome | GitHub |
 |------|--------|
-| Felipe Ulisses | [@felipeulisses](#) |
-| Jailson Souza | [@jailsonsouza](#) |
-| Gabriel Dias | [@gabrieldias](#) |
-| Lucas Nery | [@lucasnery](#) |
-| Lucas e Gabriel Lucas | [@lucasgabriel](#) |
-
-> 📌 _Atualize os links do GitHub com os usernames reais de cada membro._
+| Felipe Ulisses | [@FelipeUCAA](#) |
+| Jailson Souza | [@JootaJR](#) |
+| Gabriel Dias | [@Diaszy7](#) |
 
 ---
 
@@ -30,7 +26,7 @@ SmartBuy é uma aplicação web desenvolvida em **Spring Boot (Java)** que permi
 - Controle de estoque básico
 
 **Tecnologias utilizadas:**
-- Java 17+
+- Java 21
 - Spring Boot
 - Maven
 - H2 / PostgreSQL
@@ -61,9 +57,9 @@ Acesse em: `http://localhost:8080`
 
 > Prazo: 16/03
 
-- 🔗 [[Histórias](https://docs.google.com/document/d/12sjdXuby11exG4eGKSOAloVBqPHDryoqU4kQ6i8C4ww/edit?tab=t.0#heading=h.uofl7og6144t)](#)
-- 🎨 [[Protótipo Figma](https://www.figma.com/design/SxHzf6oMMBNNuwvGhtoK6B/FigmaSmartBuyConcentrados?node-id=0-1&t=dN8PWqwzqcsbp7HE-1)](#)
-- 🎬 [[Screencast — Apresentação do Protótipo](https://www.youtube.com/watch?v=oODfFxuLpkA)](#) — _link para o YouTube_
+- 🔗 [[Histórias](https://docs.google.com/document/d/12sjdXuby11exG4eGKSOAloVBqPHDryoqU4kQ6i8C4ww/edit?tab=t.0#heading=h.uofl7og6144t)]
+- 🎨 [[Protótipo Figma](https://www.figma.com/design/SxHzf6oMMBNNuwvGhtoK6B/FigmaSmartBuyConcentrados?node-id=0-1&t=dN8PWqwzqcsbp7HE-1)]
+- 🎬 [[Screencast — Apresentação do Protótipo](https://www.youtube.com/watch?v=oODfFxuLpkA)]
 
 ---
 
@@ -72,10 +68,8 @@ Acesse em: `http://localhost:8080`
 > Prazo: 06/04
 
 - ✅ Histórias implementadas: História 1 – Cadastro de usuário, História 2 - Login
-- 🎬 [Screencast — Sistema Funcionando](#) — _link para o YouTube_
+- 🎬 [Screencast — Sistema Funcionando](#)
 - 🐛 Issue/Bug Tracker: <img width="1708" height="391" alt="image" src="https://github.com/user-attachments/assets/be6dd260-be47-460f-ab7e-5086af35132f" />
-
-
 
 
 ---
@@ -85,11 +79,8 @@ Acesse em: `http://localhost:8080`
 > Prazo: 27/04
 
 - ✅ Novas histórias implementadas: _listar aqui_
-- 🎬 [Screencast — Novas Funcionalidades](#) — _link para o YouTube_
+- 🎬 [Screencast — Novas Funcionalidades](#) 
 - 🐛 Issue/Bug Tracker:
-
-![Issue Tracker - Entrega 3](#)
-_Substituir pela print do issue tracker no GitHub_
 
 ---
 
@@ -98,11 +89,8 @@ _Substituir pela print do issue tracker no GitHub_
 > Prazo: 18/05
 
 - ✅ Histórias finais implementadas: _listar aqui_
-- 🎬 [Screencast — Versão Final](#) — _link para o YouTube_
+- 🎬 [Screencast — Versão Final](#)
 - 🐛 Issue/Bug Tracker:
-
-![Issue Tracker - Entrega 4](#)
-_Substituir pela print do issue tracker no GitHub_
 
 ---
 
