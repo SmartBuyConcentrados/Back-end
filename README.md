@@ -45,7 +45,7 @@ cd smartbuy
 ./mvnw spring-boot:run
 ```
 
-Acesse em: `http://localhost:8080`
+Acesse em: `http://localhost:8081`
 
 ---
 
@@ -68,7 +68,7 @@ Acesse em: `http://localhost:8080`
 > Prazo: 06/04
 
 - ✅ Histórias implementadas: História 1 – Cadastro de usuário, História 2 - Login
-- 🎬 [Screencast — Sistema Funcionando](#)
+- 🎬 [[Screencast — Sistema Funcionando](https://youtu.be/_1yN03tYLAc)]
 - 🐛 Issue/Bug Tracker: <img width="1708" height="391" alt="image" src="https://github.com/user-attachments/assets/be6dd260-be47-460f-ab7e-5086af35132f" />
 
 
@@ -98,4 +98,4 @@ Acesse em: `http://localhost:8080`
 
 - 🔗 [[Histórias](https://docs.google.com/document/d/12sjdXuby11exG4eGKSOAloVBqPHDryoqU4kQ6i8C4ww/edit?tab=t.0#heading=h.uofl7og6144t)](#)
 - 🎨 [[Protótipo Figma](https://www.figma.com/design/SxHzf6oMMBNNuwvGhtoK6B/FigmaSmartBuyConcentrados?node-id=0-1&t=dN8PWqwzqcsbp7HE-1)](#)
-- 📹 [[Canal / Playlist YouTube](https://www.youtube.com/@FELIPEULISSESCAVALCANTIDEALBUQ)](#)
+- 📹 [[Canal / Playlist YouTube][(https://www.youtube.com/playlist?list=PLoiveRQmZU2pg6tuExSwG4Vb7cG_DJvvA)](#)
