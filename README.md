@@ -78,9 +78,11 @@ Acesse em: `http://localhost:8081`
 
 > Prazo: 27/04
 
-- ✅ Novas histórias implementadas: _listar aqui_
-- 🎬 [Screencast — Novas Funcionalidades](#) 
-- 🐛 Issue/Bug Tracker:
+- ✅ Novas histórias implementadas: História 1 - Criar lista de compras, História 4 – Adicionar item à lista, História 7 – Remover item,  História 8 – Listar listas do usuário
+- 🎬 [[Screencast — Novas Funcionalidades](https://www.youtube.com/watch?v=Tn1Z5v424Vk)]
+- 🐛 Issue/Bug Tracker: <img width="1621" height="396" alt="image" src="https://github.com/user-attachments/assets/287b18a5-7e04-4796-8b66-6b7a2ecff1b0" />
+
+
 
 ---
 
@@ -96,6 +98,6 @@ Acesse em: `http://localhost:8081`
 
 ## 📌 Links Úteis
 
-- 🔗 [[Histórias](https://docs.google.com/document/d/12sjdXuby11exG4eGKSOAloVBqPHDryoqU4kQ6i8C4ww/edit?tab=t.0#heading=h.uofl7og6144t)](#)
-- 🎨 [[Protótipo Figma](https://www.figma.com/design/SxHzf6oMMBNNuwvGhtoK6B/FigmaSmartBuyConcentrados?node-id=0-1&t=dN8PWqwzqcsbp7HE-1)](#)
-- 📹 [[Canal / Playlist YouTube][(https://www.youtube.com/playlist?list=PLoiveRQmZU2pg6tuExSwG4Vb7cG_DJvvA)](#)
+- 🔗 [[Histórias](https://docs.google.com/document/d/12sjdXuby11exG4eGKSOAloVBqPHDryoqU4kQ6i8C4ww/edit?tab=t.0#heading=h.uofl7og6144t)]
+- 🎨 [[Protótipo Figma](https://www.figma.com/design/SxHzf6oMMBNNuwvGhtoK6B/FigmaSmartBuyConcentrados?node-id=0-1&t=dN8PWqwzqcsbp7HE-1)]
+- 📹 [[Canal / Playlist YouTube](https://www.youtube.com/watch?v=Tn1Z5v424Vk&list=PLoiveRQmZU2pg6tuExSwG4Vb7cG_DJvvA)]
