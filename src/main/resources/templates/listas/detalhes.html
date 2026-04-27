@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartBuy - Lista</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #f0f2f5; }
+        nav { background: #2d6a4f; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav h1 { color: white; font-size: 1.2rem; }
+        nav a { color: #b7e4c7; text-decoration: none; margin-left: 1rem; font-size: 0.9rem; }
+        nav a:hover { color: white; }
+        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        h2 { color: #2d6a4f; margin-bottom: 1.5rem; }
+        .msg { background: #d4edda; color: #155724; padding: 0.6rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+        .erro { background: #f8d7da; color: #721c24; padding: 0.6rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+        .form-card { background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1.5rem; }
+        .form-card h3 { color: #2d6a4f; margin-bottom: 1rem; font-size: 1rem; }
+        .row { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .row > div { flex: 1; min-width: 140px; }
+        label { display: block; margin-bottom: 0.3rem; font-size: 0.85rem; color: #555; }
+        input { width: 100%; padding: 0.55rem 0.8rem; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; }
+        .btn { padding: 0.55rem 1rem; background: #2d6a4f; color: white; border: none; border-radius: 6px; font-size: 0.9rem; cursor: pointer; text-decoration: none; display: inline-block; }
+        .btn:hover { background: #1b4332; }
+        .btn-danger { background: #c0392b; }
+        .btn-danger:hover { background: #922b21; }
+        .btn-secondary { background: #888; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        th { background: #2d6a4f; color: white; padding: 0.75rem 1rem; text-align: left; font-size: 0.9rem; }
+        td { padding: 0.75rem 1rem; border-bottom: 1px solid #eee; font-size: 0.9rem; color: #333; }
+        tr:last-child td { border-bottom: none; }
+        .total { text-align: right; margin-top: 1rem; font-size: 1rem; color: #2d6a4f; font-weight: bold; }
+        .vazio { text-align: center; padding: 2rem; color: #888; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <h1>🛒 SmartBuy</h1>
+    <div>
+        <a th:href="@{/listas}">Minhas Listas</a>
+        <a th:href="@{/logout}">Sair</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div th:if="${msg}" class="msg" th:text="${msg}"></div>
+    <div th:if="${erro}" class="erro" th:text="${erro}"></div>
+
+    <h2 th:text="'Lista: ' + ${lista.nome}"></h2>
+
+    <!-- Formulário para adicionar item -->
+    <div class="form-card">
+        <h3>+ Adicionar Item</h3>
+        <form th:action="@{/listas/{id}/adicionar(id=${lista.id})}" th:object="${item}" method="post">
+            <div class="row">
+                <div>
+                    <label>Nome do produto *</label>
+                    <input type="text" th:field="*{nome}" placeholder="Ex: Arroz" required />
+                </div>
+                <div>
+                    <label>Preço (R$) *</label>
+                    <input type="number" th:field="*{preco}" placeholder="0.00" step="0.01" min="0" required />
+                </div>
+                <div>
+                    <label>Quantidade *</label>
+                    <input type="number" th:field="*{quantidade}" placeholder="1" min="1" required />
+                </div>
+            </div>
+            <button type="submit" class="btn" style="margin-top: 0.5rem;">Adicionar</button>
+        </form>
+    </div>
+
+    <!-- Tabela de itens -->
+    <table>
+        <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Preço Unit.</th>
+            <th>Qtd</th>
+            <th>Subtotal</th>
+            <th>Ação</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${#lists.isEmpty(lista.itens)}">
+            <td colspan="5" class="vazio">Nenhum item adicionado ainda.</td>
+        </tr>
+        <tr th:each="item : ${lista.itens}">
+            <td th:text="${item.nome}"></td>
+            <td th:text="'R$ ' + ${#numbers.formatDecimal(item.preco, 1, 2)}"></td>
+            <td th:text="${item.quantidade}"></td>
+            <td th:text="'R$ ' + ${#numbers.formatDecimal(item.subtotal, 1, 2)}"></td>
+            <td>
+                <a th:href="@{/listas/{lid}/remover/{iid}(lid=${lista.id},iid=${item.id})}"
+                   class="btn btn-danger"
+                   onclick="return confirm('Remover item?')">Remover</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- TOTAL DA LISTA
+    <div class="total" th:if="${!#lists.isEmpty(lista.itens)}">
+        Total: R$ <span th:text="${#numbers.formatDecimal(lista.total, 1, 2)}"></span>
+    </div>
+    -->
+</div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartBuy - Minhas Listas</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #f0f2f5; }
+        nav { background: #2d6a4f; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav h1 { color: white; font-size: 1.2rem; }
+        nav a { color: #b7e4c7; text-decoration: none; margin-left: 1rem; font-size: 0.9rem; }
+        nav a:hover { color: white; }
+        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .top h2 { color: #2d6a4f; }
+        .nova-lista { display: flex; gap: 0.5rem; }
+        .nova-lista input { padding: 0.5rem 0.8rem; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; width: 220px; }
+        .btn { padding: 0.5rem 1rem; background: #2d6a4f; color: white; border: none; border-radius: 6px; font-size: 0.9rem; cursor: pointer; text-decoration: none; }
+        .btn:hover { background: #1b4332; }
+        .btn-danger { background: #c0392b; }
+        .btn-danger:hover { background: #922b21; }
+        .msg { background: #d4edda; color: #155724; padding: 0.6rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+        .erro { background: #f8d7da; color: #721c24; padding: 0.6rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+        .card { background: white; border-radius: 10px; padding: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; flex-direction: column; gap: 0.8rem; }
+        .card h3 { color: #2d6a4f; font-size: 1rem; }
+        .card p { color: #888; font-size: 0.85rem; }
+        .card-acoes { display: flex; gap: 0.5rem; }
+        .vazio { text-align: center; color: #888; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <h1>🛒 SmartBuy</h1>
+    <div>
+        <a th:href="@{/home}">Home</a>
+        <a th:href="@{/logout}">Sair</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div th:if="${msg}" class="msg" th:text="${msg}"></div>
+    <div th:if="${erro}" class="erro" th:text="${erro}"></div>
+
+    <div class="top">
+        <h2>Minhas Listas</h2>
+        <form th:action="@{/listas/criar}" method="post" class="nova-lista">
+            <input type="text" name="nome" placeholder="Nome da nova lista..." required />
+            <button type="submit" class="btn">+ Criar</button>
+        </form>
+    </div>
+
+    <div class="cards" th:if="${!#lists.isEmpty(listas)}">
+        <div class="card" th:each="lista : ${listas}">
+            <h3 th:text="${lista.nome}"></h3>
+            <p th:text="${#lists.size(lista.itens)} + ' item(ns)'"></p>
+            <div class="card-acoes">
+                <a th:href="@{/listas/{id}(id=${lista.id})}" class="btn">Ver</a>
+                <a th:href="@{/listas/deletar/{id}(id=${lista.id})}" class="btn btn-danger"
+                   onclick="return confirm('Remover esta lista?')">Remover</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="vazio" th:if="${#lists.isEmpty(listas)}">
+        <p>Nenhuma lista criada ainda. Crie sua primeira lista acima!</p>
+    </div>
+</div>
+
+</body>
+</html>
