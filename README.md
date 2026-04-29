@@ -29,7 +29,7 @@ SmartBuy é uma aplicação web desenvolvida em **Spring Boot (Java)** que permi
 - Java 21
 - Spring Boot
 - Maven
-- H2 / PostgreSQL
+- H2 / PostgreSQL/ MySQL
 - HTML/CSS/Thymeleaf (ou React — atualizar conforme definição final)
 
 ---
