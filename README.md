@@ -6,7 +6,7 @@ SmartBuy é uma aplicação web desenvolvida em **Spring Boot (Java)** que permi
 
 ---
 
-## 👥 Equipe
+## 👥 equipe
 
 | Nome | GitHub |
 |------|--------|
