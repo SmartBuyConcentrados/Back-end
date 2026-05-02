@@ -59,7 +59,7 @@ Acesse em: `http://localhost:8081`
 
 - 🔗 [[Histórias](https://docs.google.com/document/d/12sjdXuby11exG4eGKSOAloVBqPHDryoqU4kQ6i8C4ww/edit?tab=t.0#heading=h.uofl7og6144t)]
 - 🎨 [[Protótipo Figma](https://www.figma.com/design/SxHzf6oMMBNNuwvGhtoK6B/FigmaSmartBuyConcentrados?node-id=0-1&t=dN8PWqwzqcsbp7HE-1)]
-- 🎬 [[Screencast — Apresentação do Protótipo](https://www.youtube.com/watch?v=oODfFxuLpkA)]
+- 🎬 [[Screencast — Apresentação do Protótipo](https://www.youtube.com/watch?v=ZrVvX_9D3RI)]
 
 ---
 
