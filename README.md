@@ -1,8 +1,8 @@
-# 🛒 SmartBuy
+# 🛒 SmarTaggy
 
-> Sistema web de gerenciamento de pedidos e preços — como um caixa de supermercado moderno.
+> Sistema web de gerenciamento de viagens — para um mundo com menos CO2.
 
-SmartBuy é uma aplicação web desenvolvida em **Spring Boot (Java)** que permite registrar produtos, gerenciar listas de pedidos e calcular preços de forma rápida e intuitiva, simulando o fluxo de um caixa de supermercado.
+SmarTaggy é uma aplicação web desenvolvida em **Spring Boot (Java)** que permite registrar viagens, gerenciar listas de viagens e calcular viagens de forma rápida e intuitiva, simulando o fluxo de uma transportadora que se importa.
 
 ---
 
@@ -18,12 +18,12 @@ SmartBuy é uma aplicação web desenvolvida em **Spring Boot (Java)** que permi
 
 ## 📦 Sobre o Produto
 
-**SmartBuy** é uma aplicação voltada para o controle de pedidos e preços, funcionando como um sistema de caixa de supermercado. O sistema permite:
+**SmarTaggy** é uma aplicação voltada para o controle de viagens e CO2, funcionando como um sistema de transportadora. O sistema permite:
 
-- Cadastro de produtos com preço e quantidade
-- Criação e gerenciamento de listas de pedidos
-- Cálculo automático de totais
-- Controle de estoque básico
+- Cadastro de viagens com destino e combustível
+- Criação e gerenciamento de listas de viagens
+- Cálculo automático de gasto total
+- Controle de viagens feitas
 
 **Tecnologias utilizadas:**
 - Java 21
@@ -90,9 +90,10 @@ Acesse em: `http://localhost:8081`
 
 > Prazo: 18/05
 
-- ✅ Histórias finais implementadas: _listar aqui_
-- 🎬 [Screencast — Versão Final](#)
-- 🐛 Issue/Bug Tracker:
+- ✅ Histórias finais implementadas: História 5 – Marcar item como comprado, História 6 – Visualizar total da lista, **REFACTOR implementada calculadora de controle de viagens e gastos de CO2**
+- 🎬 [[Screencast — Versão Final]](https://youtu.be/x-Hd9Xtgpqs)
+- 🐛 Issue/Bug Tracker:<img width="1156" height="313" alt="image" src="https://github.com/user-attachments/assets/7c3e0fe7-84a5-4d0e-9528-f9bc70311bbb" />
+
 
 ---
 
