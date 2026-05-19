@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico de Trajetos</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #f0f2f5; }
+        nav { background: #1b4332; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav h1 { color: white; font-size: 1.2rem; }
+        nav a { color: #b7e4c7; text-decoration: none; margin-left: 1rem; font-size: 0.9rem; }
+        nav a:hover { color: white; }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .top h2 { color: #1b4332; }
+        .btn { padding: 0.5rem 1rem; background: #1b4332; color: white; border: none; border-radius: 6px; font-size: 0.9rem; cursor: pointer; text-decoration: none; }
+        .btn:hover { background: #081c15; }
+        .btn-danger { background: #c0392b; }
+        .btn-danger:hover { background: #922b21; }
+        .msg { background: #d4edda; color: #155724; padding: 0.6rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+        .erro { background: #f8d7da; color: #721c24; padding: 0.6rem 1rem; border-radius: 6px; margin-bottom: 1rem; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        th { background: #1b4332; color: white; padding: 0.75rem 1rem; text-align: left; font-size: 0.88rem; }
+        td { padding: 0.75rem 1rem; border-bottom: 1px solid #eee; font-size: 0.88rem; color: #333; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #f9f9f9; }
+        .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.78rem; font-weight: bold; }
+        .badge-gasolina { background: #fde68a; color: #92400e; }
+        .badge-etanol   { background: #d1fae5; color: #065f46; }
+        .badge-diesel   { background: #e0e7ff; color: #3730a3; }
+        .badge-gnv      { background: #e0f2fe; color: #0369a1; }
+        .co2 { font-weight: bold; color: #1b4332; }
+        .vazio { text-align: center; padding: 2rem; color: #888; }
+        .resumo { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .resumo-card { background: white; border-radius: 10px; padding: 1rem 1.5rem; flex: 1; min-width: 160px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
+        .resumo-card .valor { font-size: 1.5rem; font-weight: bold; color: #1b4332; }
+        .resumo-card .label { font-size: 0.8rem; color: #888; margin-top: 0.2rem; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <h1>🌿 Calculadora de CO₂</h1>
+    <div>
+        <a th:href="@{/trajetos}">Nova Consulta</a>
+        <a th:href="@{/home}">Home</a>
+        <a th:href="@{/logout}">Sair</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="msg" th:if="${msg}" th:text="${msg}"></div>
+    <div class="erro" th:if="${erro}" th:text="${erro}"></div>
+
+    <div class="top">
+        <h2>📋 Histórico de Trajetos</h2>
+        <a th:href="@{/trajetos}" class="btn">+ Nova Consulta</a>
+    </div>
+
+    <!-- Resumo geral -->
+    <div class="resumo" th:if="${!#lists.isEmpty(trajetos)}">
+        <div class="resumo-card">
+            <div class="valor" th:text="${#lists.size(trajetos)}"></div>
+            <div class="label">Trajetos realizados</div>
+        </div>
+        <div class="resumo-card">
+            <div class="valor" th:text="${#numbers.formatDecimal(totalDistancia, 1, 1)} + ' km'"></div>
+            <div class="label">Distância total</div>
+        </div>
+        <div class="resumo-card">
+            <div class="valor" th:text="${#numbers.formatDecimal(totalCo2, 1, 2)} + ' kg'"></div>
+            <div class="label">CO₂ total emitido</div>
+        </div>
+    </div>
+
+    <!-- Tabela -->
+    <table>
+        <thead>
+        <tr>
+            <th>Origem → Destino</th>
+            <th>Veículo</th>
+            <th>Combustível</th>
+            <th>Distância</th>
+            <th>Consumo</th>
+            <th>CO₂ emitido</th>
+            <th>Data</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${#lists.isEmpty(trajetos)}">
+            <td colspan="8" class="vazio">Nenhum trajeto calculado ainda.</td>
+        </tr>
+        <tr th:each="t : ${trajetos}">
+            <td th:text="${t.origem} + ' → ' + ${t.destino}"></td>
+            <td th:text="${t.tipoVeiculo.replace('_', ' ')}"></td>
+            <td>
+                    <span class="badge"
+                          th:classappend="'badge-' + ${t.combustivel.toLowerCase()}"
+                          th:text="${t.combustivel}"></span>
+            </td>
+            <td th:text="${#numbers.formatDecimal(t.distanciaKm, 1, 1)} + ' km'"></td>
+            <td th:text="${#numbers.formatDecimal(t.consumoCombustivel, 1, 2)} + ' L'"></td>
+            <td class="co2" th:text="${#numbers.formatDecimal(t.emissaoCo2Kg, 1, 2)} + ' kg'"></td>
+            <td th:text="${#temporals.format(t.dataCriacao, 'dd/MM/yyyy HH:mm')}"></td>
+            <td>
+                <a th:href="@{/trajetos/deletar/{id}(id=${t.id})}" class="btn btn-danger"
+                   onclick="return confirm('Remover este trajeto?')">✕</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
